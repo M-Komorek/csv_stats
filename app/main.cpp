@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "ColumnStats.hpp"
-#include "CsvProcessor.hpp"
+#include "CsvProcessing.hpp"
 
 int main(int argc, char* argv[]) {
     if (argc != 2) 
@@ -21,13 +21,13 @@ int main(int argc, char* argv[]) {
             std::cerr << "Failed to initialize csv file manager." << std::endl;
             return 1;
         }
-
-        const auto csvProcessor = CsvProcessor{csvFileInformation.value()};
-        const auto stats = csvProcessor.run();
+        const auto stats = calculateCsvStats(csvFileInformation.value());
 
         const auto endTime = std::chrono::high_resolution_clock::now();
         const auto diff = std::chrono::duration<double>{endTime - startTime};
+        
         prettyPrint(stats);
+        
         std::cout << "Total processing time: " << diff.count() << " seconds." << std::endl;
     } 
     catch (const std::exception& e) 

@@ -3,7 +3,7 @@ find_package(Threads REQUIRED)
 add_library(csv_stats_lib
 	CsvFileInformation.cpp
 	ColumnStats.cpp
-    CsvProcessor.cpp
+    CsvProcessing.cpp
     ToolKit.cpp
 	ThreadLocalResults.cpp
 )
