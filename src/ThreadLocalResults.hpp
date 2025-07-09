@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "ToolKit.hpp"
 #include "ColumnStats.hpp"
+#include "ToolKit.hpp"
 
 class ThreadLocalResults 
 {
