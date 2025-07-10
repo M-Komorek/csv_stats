@@ -69,7 +69,7 @@ auto processChunk(const CsvFileInformation& csvFileInformation, size_t chunkStar
     auto line = std::string{};
     while (static_cast<size_t>(file.tellg()) < chunkEnd && std::getline(file, line)) 
     {
-        threadLocalResults.parseAndUpdate(line, csvFileInformation.numOfValueColumns_);
+        threadLocalResults.parseAndUpdate(line);
     }
 
     return threadLocalResults;

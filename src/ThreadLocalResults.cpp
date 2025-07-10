@@ -3,16 +3,16 @@
 
 #include "ThreadLocalResults.hpp"
 
-ThreadLocalResults::ThreadLocalResults(size_t numOfColumns)
-    : mins_(numOfColumns, std::numeric_limits<double>::max())
-    , maxs_(numOfColumns, std::numeric_limits<double>::lowest())
-    , sums_(numOfColumns, 0.0)
-    , counts_(numOfColumns, 0)
-    , histograms_(numOfColumns)
+ThreadLocalResults::ThreadLocalResults(size_t numOfValueColumns)
+    : mins_(numOfValueColumns, std::numeric_limits<double>::max())
+    , maxs_(numOfValueColumns, std::numeric_limits<double>::lowest())
+    , sums_(numOfValueColumns, 0.0)
+    , counts_(numOfValueColumns, 0)
+    , histograms_(numOfValueColumns)
 {
 }
 
-auto ThreadLocalResults::parseAndUpdate(std::string_view line, size_t numOfValueColumns) -> void
+auto ThreadLocalResults::parseAndUpdate(std::string_view line) -> void
 {
     if (line.empty())
     {
@@ -24,6 +24,7 @@ auto ThreadLocalResults::parseAndUpdate(std::string_view line, size_t numOfValue
         line.remove_suffix(1);
     }
 
+    const auto numOfValueColumns = std::size(mins_);
     const auto parts = splitLine(line, ',');
     if (parts.size() != numOfValueColumns + 1) 
     {

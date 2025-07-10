@@ -1,5 +1,6 @@
 add_executable(csv_stats_tests
 	CsvFileInformation.ut.cpp
+	ThreadLocalResults.ut.cpp
 	ToolKit.ut.cpp
 )
 

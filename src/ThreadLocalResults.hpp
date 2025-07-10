@@ -8,9 +8,9 @@
 class ThreadLocalResults 
 {
 public:
-    explicit ThreadLocalResults(size_t numOfColumns);
+    explicit ThreadLocalResults(size_t numOfValueColumns);
 
-    auto parseAndUpdate(std::string_view line, size_t numOfValueColumns) -> void;
+    auto parseAndUpdate(std::string_view line) -> void;
 
     auto getMin(size_t index) const
     {
