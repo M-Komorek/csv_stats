@@ -52,7 +52,7 @@ The core of the project is a carefully designed parallel processing pipeline.
 
 When run without a specified thread count, _csv_stats_ enters an optimization mode. It performs the entire `process_csv` operation for a range of thread counts (from 1 up to the number of hardware cores). It measures the execution time for each run and identifies which thread count yielded the fastest result. It then presents the statistics from that optimal run, along with the number of threads used.
 
-# Build and run
+## Build and run
 Build project:
 ``` bash
 mkdir build
